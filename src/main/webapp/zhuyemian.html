@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta http-equiv="Content-Type" content="multipart/form-data; charset=utf-8" />
+		<link rel="stylesheet" type="text/css" href="css/common.css"/>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/zhuyemian.css" rel="stylesheet"/>
+		<script src="houtai/script/jquery-1.10.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="houtai/script/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/echarts.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/dark.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/xlsx.core.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.form.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="header">
+			<img src="img/close.png" class="close"/>
+			<img src="img/logo.png" width="60px" height="60px"/>
+			<h1>瓦斯抽采监控智能评价系统</h1>
+			<ul>
+				<li><a href="javascript:void(0)"><img src="img/首页.png" alt="" />首页</a></li>
+				<li><a href="javascript:void(0)"><img src="img/系统管理.png" alt="" />系统管理</a></li>
+				<li><a href="javascript:void(0)"><img src="img/数据显示.png" width="30px" height="28px" class="shuju"/>数据显示</a></li>
+				<li><a href="javascript:void(0)"><img src="img/智能.png" alt="" />智能评判</a></li>
+				<li><a href="javascript:void(0)"><img src="img/报表打印.png" width="30px" height="28px"/>报表打印</a></li>
+			</ul>
+		</div>
+		<div class="section clearfix">
+			<div class="left">
+				<ul>
+					<li id="li1">
+						<p class="p-span1">
+							<a href="javascript:void(0)">
+								<img src="img/首页-选中 (1).png" alt="" width="21px" height="21px"/>
+								<span >首页</span>
+							</a>
+						</p>
+					</li>
+					<li id="li2" class="level1">
+						<p>
+							<a href="javascript:void(0)">
+								<img src="img/系统管理 (1).png" alt="" width="25px" height="25px"/>
+								<span>系统管理</span>
+								<img src="img/箭头.png" width="10px" height="10px" class="arrow"/>
+							</a>
+						</p>
+						<ul class="system">
+							<li><a href="#" ><span class="p-span1" id="w-can">参数设置</span></a></li>
+							<li><a href="#" ><span class="p-span1" id="w-chuan">传感器管理</span></a></li>
+							<li><a href="#" ><span class="p-span1" id="w-fen">分站管理</span></a></li>
+						</ul>
+					</li>
+					<li id="li3" class="level1">
+						<p>
+							<a href="javascript:void(0)">
+								<img src="img/数据显示 (1).png" width= "21px" height="21px"/>
+								<span>数据显示</span>
+								<img src="img/箭头.png" width="10px" height="10px" class="arrow"/>
+							</a>
+						</p>
+						<ul class="system">
+							<li><a href="#" ><span class="p-span1">实时数据显示</span></a></li>
+							<li><a href="#" ><span class="p-span1" id="w-lishi">历史数据显示</span></a></li>
+							<li><a href="#" ><span class="p-span1" id="w-baojing">报警信息显示</span></a></li>
+						</ul>
+					</li>
+					<li id="li4" class="level1">
+						<p>
+							<a href="javascript:void(0)">
+								<img src="img/智能 (1).png" alt=""  width="21px" height="21px"/>
+								<span>智能评判</span>
+								<img src="img/箭头.png" width="10px" height="10px" class="arrow"/>
+							</a>
+						</p>
+						<ul class="system">
+							<li><a href="#" ><span class="p-span1" id="w-zuankong">钻孔施工信息</span></a></li>
+							<li><a href="#" ><span class="p-span1" id="w-jiliang">抽采计量数据</span></a></li>
+							<li><a href="#" ><span class="p-span1" id="w-yuce">抽采效果预测</span></a></li>
+							<li><a href="#" ><span class="p-span1">抽采效果评估</span></a></li>
+							<li><a href="#" ><span class="p-span1" id="w-tiaokong">调控命令管理</span></a></li>
+						</ul>
+					</li>
+					<li id="li5" class="level1">
+						<p>
+							<a href="javascript:void(0)">
+								<img src="img/报表打印 (1).png" width="21px" height="21px"/>
+								<span>报表打印</span>
+								<img src="img/箭头.png" width="10px" height="10px" class="arrow"/>
+							</a>
+						</p>
+						<ul class="system">
+							<li><a href="#" ><span class="p-span1">预警信息报表</span></a></li>
+							<li><a href="#" ><span class="p-span1">抽采效果评估</span></a></li>
+							<li><a href="#" ><span class="p-span1">抽采报表</span></a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div class="right" id="right_block">
+				<!--<div id="shouye" class="w-a">
+					<div class="sy-header">
+						实时数据展示 
+					</div>
+					<div id="sy-contain"></div>
+				</div>-->
+				<div class="w-a" id="shouye-p">
+					<div class="shouye">
+						<div class="header">位置：首页</div>
+						<div id="shouye"></div>
+						<div id="shouye1"></div>
+						<div id="shouye2"></div>
+						<div id="shouye3"></div>
+					</div>
+				</div>
+				<div class="w-a">
+					<div class="canshushezhi">
+						<div class="header">位置：系统管理-参数设置</div>
+						<div class="row1">
+							<form class="bs-example bs-example-form" role="form" style="height: 100%;" onsubmit="return false">
+					        	<div class="input-group">
+						            <span class="input-group-addon">矿井名称</span>
+						            <!--<input type="text" class="form-control" placeholder="请输入矿井名称" value="">-->
+						        </div>
+						        <div class="input-group">
+						            <span class="input-group-addon">设计生产能力</span>
+						            <!--<input type="text" class="form-control" placeholder="请输入设计生产能力">-->
+						        </div>
+						        <div class="input-group">
+						            <span class="input-group-addon">回风量</span>
+						            <!--<input type="text" class="form-control" placeholder="请输入回风量">-->
+						            <span class="danwei"></span>
+						        </div>
+						        <div class="input-group">
+						            <span class="input-group-addon">核定生产能力</span>
+						           <!-- <input type="text" class="form-control" placeholder="请输入核定生产能力">-->
+						            <span class="danwei"></span>
+						        </div>
+						        <div class="input-group">
+						            <span class="input-group-addon">进风量</span>
+						            <!--<input type="text" class="form-control" placeholder="请输入进风量">-->
+						            <span class="danwei"></span>
+						        </div>
+						        <div class="input-group lie">
+						            <span class="input-group-addon">瓦斯绝对涌出量</span>
+						            <!--<input type="text" class="form-control" placeholder="请输入瓦斯绝对涌出量">-->
+						            <span class="danwei"></span>
+						        </div>
+						        <div class="input-group lie">
+						            <span class="input-group-addon">瓦斯相对涌出量</span>
+						            <!--<input type="text" class="form-control" placeholder="请输入瓦斯相对涌出量">-->
+						            <span class="danwei"></span>
+						        </div>
+						        <div class="input-group">
+						            <span class="input-group-addon">煤层原始瓦斯压力</span>
+						            <!--<input type="text" class="form-control" placeholder="请输入煤层原始瓦斯压力">-->
+						            <span class="danwei"></span>
+						        </div>
+						        <div class="input-group lie">
+						            <span class="input-group-addon">煤层原始瓦斯含量</span>
+						           <!-- <input type="text" class="form-control" placeholder="请输入煤层原始瓦斯含量">-->
+						            
+						        </div>
+						        <div class="input-group">
+						            <span class="input-group-addon">媒体破坏类型</span>
+						            
+						            <!--<select>
+						            	<option value="请选择">请选择</option>
+						            	<option value="I">I</option>
+						            	<option value="II">II</option>
+						            	<option value="III">III</option>
+						            	<option value="IV">IV</option>
+						            	<option value="V">V</option>
+						            </select>-->
+						            
+						        </div>
+						        <div class="input-group">
+						            <span class="input-group-addon">瓦斯放散初速度</span>
+						            <!--<input type="text" class="form-control" placeholder="请输入瓦斯放散初速度">-->
+						            
+						        </div>
+						        <div class="input-group">
+						            <span class="input-group-addon">煤层坚固性系数</span>
+						            <!--<input type="text" class="form-control" placeholder="请输入煤层坚固性系数">-->
+						        </div>
+						        <div class="input-group">
+						            <span class="input-group-addon">煤层透气性系数</span>
+						            <!--<input type="text" class="form-control" placeholder="请输入煤层透气性系数">-->
+						        </div>
+						        
+						        <div class="input-group lie">
+						            <span class="input-group-addon">地质构造</span>
+						            <!--<input type="text" class="form-control" placeholder="请输入地质构造">-->
+						        </div>
+						        <button type="button" class="btn btn-success btn-lg">保存</button>
+						        <input type="reset" class="btn btn-warning btn-lg" value="取消" />
+						    </form>
+							
+						</div>
+					</div>
+				</div>
+				<div class="w-a">
+					<div class="chuanganqi">
+						<div class="header">位置：系统管理-传感器管理</div>
+						<div class="row1">
+							<table class="table">
+								<thead>
+									<tr>
+										<th>传感器编号</th>
+										<th>传感器名称</th>
+										<th>传感器型号</th>
+										<th>传感器类型</th>
+										<th>传感器单位</th>
+										<th>修改信息</th>
+										<th>删除</th>
+									</tr>
+								</thead>
+								<tbody>
+									<!--<tr>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td>
+											<select>
+												<option value="请选择">请选择</option>
+												<option value="瓦斯传感器">瓦斯传感器</option>
+												<option value="温度传感器">温度传感器</option>
+												<option value="流量传感器">流量传感器</option>
+												<option value="负压传感器">负压传感器</option>
+												<option value="风速传感器">风速传感器</option>
+											</select>
+										</td>
+										<td></td>
+										<td style="display: none;"></td>
+										
+										<td><input type="button" value="修改"  class="btn btn-primary btn-sm"/></td>
+										<td><input type="button" value="删除" class="btn btn-danger btn-sm"/></td>
+									</tr>
+									<tr>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td>
+											<select>
+												<option value="请选择">请选择</option>
+												<option value="瓦斯传感器">瓦斯传感器</option>
+												<option value="温度传感器">温度传感器</option>
+												<option value="流量传感器">流量传感器</option>
+												<option value="负压传感器">负压传感器</option>
+												<option value="风速传感器">风速传感器</option>
+											</select>
+										</td>
+										<td></td>
+										<td style="display: none;"></td>
+										<td><input type="button" value="修改"  class="btn btn-primary btn-sm"/></td>
+										<td><input type="button" value="删除" class="btn btn-danger btn-sm"/></td>
+									</tr>-->
+									
+								
+								</tbody>
+							</table>
+							
+						</div>
+						<input type="button" class="btn btn-default" value="添加" style="position: absolute;right: 20px;"/>
+					</div>
+				</div>
+				<div class="w-a">
+					<div class="fenzhan">
+						<div class="header">位置：系统管理-分站管理</div>
+						<div class="row1">
+							<table class="table">
+								<thead>
+									<tr>
+										<th>分站编号</th>
+										<th>分站位置</th>
+										<th>分站类型</th>
+										<th>修改信息</th>
+										<th>删除</th>
+									</tr>
+								</thead>
+								<tbody>
+									<!--<tr>
+										<td></td>
+										<td></td>
+										<td>
+											<select>
+												<option value="请选择">请选择</option>
+												<option value="0-16通道分站">0-16通道分站</option>
+												<option value="1-4通道分站">1-4通道分站</option>
+											</select>
+										</td>
+										<span style="display: none;"></span>
+										<td><input type="button" value="修改"  class="btn btn-primary btn-sm"/></td>
+										<td><input type="button" value="删除" class="btn btn-danger btn-sm"/></td>
+									</tr>
+									<tr>
+										<td></td>
+										<td></td>
+										<td>
+											<select>
+												<option value="请选择">请选择</option>
+												<option value="0-16通道分站">0-16通道分站</option>
+												<option value="1-4通道分站">1-4通道分站</option>
+											</select>
+										</td>
+										<span style="display: none;"></span>
+										<td><input type="button" value="修改"  class="btn btn-primary btn-sm"/></td>
+										<td><input type="button" value="删除" class="btn btn-danger btn-sm"/></td>
+									</tr>
+									<tr>
+										<td></td>
+										<td></td>
+										<td>
+											<select>
+												<option value="请选择">请选择</option>
+												<option value="0-16通道分站">0-16通道分站</option>
+												<option value="1-4通道分站">1-4通道分站</option>
+											</select>
+										</td>
+										<span style="display: none;"></span>
+										<td><input type="button" value="修改" class="btn btn-primary btn-sm"/></td>
+										<td><input type="button" value="删除" class="btn btn-danger btn-sm"/></td>
+									</tr>
+									<tr>
+										<td></td>
+										<td></td>
+										<td>
+											<select>
+												<option value="请选择">请选择</option>
+												<option value="0-16通道分站">0-16通道分站</option>
+												<option value="1-4通道分站">1-4通道分站</option>
+											</select>
+										</td>
+										<span style="display: none;"></span>
+										<td><input type="button" value="修改"  class="btn btn-primary btn-sm"/></td>
+										<td><input type="button" value="删除" class="btn btn-danger btn-sm"/></td>
+									</tr>-->
+								</tbody>
+							</table>
+						</div>
+						<input type="button" class="btn btn-default" value="添加" style="position: absolute;right: 20px;"/>
+					</div>
+				</div>
+				<div class="w-a">
+					<div class="shishishuju">
+						<div class="header">位置：数据显示-实时数据显示</div>
+						<div class="row1">
+							<a class="but1">曲线显示</a><a class="but2">分站显示</a>
+							<div class="parent clearfix">  
+							    <div id="div1 clearfix">  
+							          <div class="tou">
+							          	<span class="fenzhan">分站</span>
+								          <select class="fz">
+								          	<option value="请选择">请选择</option>
+								          	<option value="0-16通道分站">0-16通道分站</option>
+								          	<option value="1-4通道分站">1-4通道分站</option>
+								          </select>
+								          <!--<span class="mingcheng">时间</span>
+								          <select class="mc">
+								          	<option value="请选择">2018-06-03</option>
+								          </select>-->
+								          <input type="button" value="生成曲线" class="but"/>
+							          </div>
+							          <div id="qx1"></div>
+							          <div id="qx2"></div>
+							          <div id="qx3"></div>
+							          <div id="qx4"></div>
+							    </div>  
+							    <!--<div id="div2">  
+							        <p>分站显示的内容</p>  
+							    </div> --> 
+							</div>  
+							<div id="div2">  
+							     <table class="table">
+									  <thead>
+									    <tr>
+									      <th>序号</th>
+									      <th>盘区</th>
+									      <th>抽采名称</th>
+									      <th>安装位置</th>
+									      <th>混合流量</th>
+									      <th>绝压</th>
+									      <th>负压</th>
+									      <th>温度</th>
+									      <th>纯流量</th>
+									      <th>流量时累积</th>
+									      <th>流量日累计</th>
+									      <th>纯流量时累积</th>
+									      <th>纯流量日累计</th>
+									      <th>纯流量月累计</th>
+									    </tr>
+									  </thead>
+									  <tbody>
+									  </tbody>
+									</table> 
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="w-a">
+					<div class="lishishuju">
+						<div class="header">位置：数据显示-历史数据展示</div>
+						<div class="row1">
+							<span>抽采地点</span>
+							<select class="fz">
+								<option value="请选择">请选择</option>
+								<option value="0-16通道分站">0-16通道分站</option>
+								<option value="1-4通道分站">1-4通道分站</option>
+							</select>
+							<span>参数类型</span>
+							<select>
+								<option value="请选择">请选择</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+							</select>
+							<span>统计方式</span>
+							<select>
+								<option value="请选择">请选择</option>
+								<option value="平均值">平均值</option>
+							</select><br />
+							<span>开始时间</span>
+							<input type="date" class="time" id="time1"/>
+							<span>结束时间</span>
+							<input type="date" class="time" id="time2"/>
+							<span>时间间隔</span>
+							<select class="jiange">
+								<option value="请选择">请选择</option>
+								<option value="d1">d1</option>
+								<option value="d2">d2</option>
+								<option value="d6">d6</option>
+								<option value="h1">h1</option>
+								<option value="h2">h2</option>
+								<option value="h3">h6</option>
+							</select>
+							<form id= "uploadForm" enctype ="multipart/form-data" name="uploadForm" action="http:123.207.72.201:8081/history/param2" method="post">
+								<input type="file"  name="file"/>
+								<input type="submit" class="btn btn-info" value="上传"/>
+							</form>
+							<div>
+								<input type="button" class="btn btn-warning" value="生成曲线"/>
+							</div>
+							<div id="fenxi1"></div>
+							<div id="fenxi2"></div>
+							<div id="fenxi3"></div>
+							<div id="fenxi4"></div>
+						</div>
+					</div>
+				</div>
+				<div class="w-a">
+					<div class="baojing">
+						<div class="header">位置：数据显示-报警信息显示</div>
+						<div class="row1">
+							<div id="mychart1" width="300px" height="230px"></div>
+							<div id="mychart2"  width="300px" height="230px"></div>
+							<div id="mychart3"  width="300px" height="230px"></div>
+							<div id="mychart4"  width="300px" height="230px"></div>
+						</div>
+					</div>
+				</div>
+				<div class="w-a">
+					<div class="zuankong">
+						<div class="header">位置：智能评判-钻孔施工信息</div>
+						<div class="row1">
+							<form class="bs-example bs-example-form" role="form" onsubmit="return false">
+						        <div class="input-group">
+						            <span class="input-group-addon">钻孔直径</span>
+						            <!--<input type="text" class="form-control" value="">-->
+						            <span class="danwei">mm</span>
+						        </div>
+						        <span class="tishi">请输入钻孔直径</span>
+						        <div class="input-group">
+						            <span class="input-group-addon">间距</span>
+						            <!--<input type="text" class="form-control" value="">-->
+						            <span class="danwei">m</span>
+						        </div>
+						        <span class="tishi">请输入间距</span>
+						        <div class="input-group">
+						            <span class="input-group-addon">开孔位置</span>
+						            <!--<input type="text" class="form-control"  value="">-->
+						        </div>
+						        <span class="tishi">请输入开孔位置</span>
+						        <div class="input-group">
+						            <span class="input-group-addon">钻孔方位</span>
+						            <!--<input type="text" class="form-control" value="">-->
+						        </div>
+						        <span class="tishi">请输入钻孔方位</span>
+						        <div class="input-group">
+						            <span class="input-group-addon">倾角</span>
+						            <!--<input type="text" class="form-control" value="">-->
+						            <span class="danwei">°</span>
+						        </div>
+						        <span class="tishi">请输入倾角</span>
+						        <div class="input-group">
+						            <span class="input-group-addon">深度</span>
+						            <!--<input type="text" class="form-control" value="">-->
+						            <span class="danwei">m</span>
+						        </div>
+						        <span class="tishi">请输入深度</span>
+						        <input type="button" value="保存" class="btn btn-primary btn-lg"/>
+						        <input type="reset" value="取消" class="btn btn-danger btn-lg"/>
+						    </form>
+						</div>
+					</div>
+				
+				</div>
+				<div class="w-a">
+					<div class="choucaijiliang">
+						<div class="header">位置：智能评判-抽采计量数据</div>
+						<div class="row1">
+							<form class="bs-example bs-example-form" role="form" onsubmit="return false">
+						        <div class="input-group">
+						            <span class="input-group-addon">抽采率</span>
+						            <!--<input type="text" class="form-control" >-->
+									<span class="danwei">%</span>
+						        </div>
+						        <span class="tishi">请输入抽采量</span>
+						        <div class="input-group">
+						            <span class="input-group-addon">抽采量</span>
+						            <!--<input type="text" class="form-control">-->
+						            <span class="danwei">m³</span>
+						        </div>
+						        <span class="tishi">请输入抽采率</span>
+						        <div class="input-group">
+						            <span class="input-group-addon">抽采时间</span>
+						            <!--<input type="text" class="form-control">-->
+						            <span class="danwei">min</span>
+						        </div>
+						        <span class="tishi">请输入抽采时间</span>
+						        <input type="button" value="保存" class="btn btn-primary btn-lg"/>
+						        <input type="reset" value="取消" class="btn btn-danger btn-lg"/>
+						    </form>
+						</div>
+					</div>
+				</div>
+				<div class="w-a">
+					<div class="choucaiyuce">
+						<div class="header">位置：智能评判-抽采效果预测</div>
+						<div class="row1">
+							<div id="chart_1">
+							</div>
+							<div id="chart_2">
+							</div>
+							<div id="chart_3">
+							</div>
+							<div id="chart_4">
+							</div>
+							<!--<form class="bs-example bs-example-form" role="form" onsubmit="return false">
+						        <div class="input-group">
+						            <span class="input-group-addon">抽采估计时间</span>
+						            <input type="text" class="form-control" placeholder="eg:10min">
+						        </div>
+						        <span class="tishi">请输入抽采估计时间</span>
+						        <br>
+						        <div class="input-group">
+						            <span class="input-group-addon">抽采速度</span>
+						            <input type="text" class="form-control" placeholder="eg:55㎡/min">
+						        </div>
+						        <span class="tishi">请输入抽采速度</span>
+						        <input type="button" value="保存" class="btn btn-primary"/>
+						    </form>-->
+						</div>
+					</div>
+				</div>
+				<div class="w-a">
+					<div class="choucaipinggu">
+						<div class="header">位置：智能评判-抽采效果评估</div>
+						<div class="row1 clearfix">
+							<form class="bs-example bs-example-form" role="form" onsubmit="return false">
+						        <div class="input-group">
+						            <span class="input-group-addon">回风流浓度</span>
+						            <input type="text" class="form-control" placeholder="请输入抽采浓度" value="">
+						            <span class="danwei">%</span>
+						        </div>
+						        <input type="button" class="btn btn-success" value="达标"/>
+						        <input type="button" class="btn btn-danger" value="未达标"/>
+						        <br>
+						        <div class="input-group">
+						            <span class="input-group-addon">抽采量</span>
+						            <input type="text" class="form-control" placeholder="请输入抽采量" value="">
+						           <span class="danwei">m³</span>
+						        </div>
+						        <input type="button" class="btn btn-success" value="达标"/>
+						        <input type="button" class="btn btn-danger" value="未达标"/><br />
+						        <div class="input-group">
+						            <span class="input-group-addon">抽采率</span>
+						            <input type="text" class="form-control" placeholder="请输入抽采率" value="">
+						            <span class="danwei">%</span>
+						        </div>
+						        <input type="button" class="btn btn-success" value="达标"/>
+						        <input type="button" class="btn btn-danger" value="未达标"/>
+						        <br>
+						        <div class="input-group">
+						            <span class="input-group-addon">综合评价</span>
+						        </div>
+						        <input type="button" class="btn btn-success" value="达标"/>
+						        <input type="button" class="btn btn-danger" value="未达标"/><br />
+						        <input type="button" value="效果评价" class="btn btn-default"/>
+						    </form>
+						</div>
+					</div>
+				</div>
+				<div class="w-a">
+					<div class="tiaokong">
+						<div class="header">位置：智能评判-调控命令管理</div>
+						<div class="row1">
+							<div class="top clearfix">
+								<div class="top-l">
+									抽采系统调控
+								</div>
+								<div class="top-r">
+									<table class="table">
+										<tbody>
+											<tr><td>1.增加抽采负压到</td><td class="pull-right" align="right"><span></span>pa</td></tr>
+											<tr><td>2.增加抽采时间到</td><td class="pull-right" align="right"><span></span>d</td></tr>
+											
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<div class="bottom">
+								<div class="bottom-l">
+									生产系统调控
+								</div>
+								<div class="bottom-r">
+									<table class="table">
+										<tbody>
+											<tr><td>1.减缓日推进距</td><td class="pull-right" align="right"><span></span>m/d</td></tr>
+											<tr><td>2.增加通风量为</td><td class="pull-right" align="right"><span></span>㎡/min</td></tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="w-a">
+					<div class="chaxunjilu">
+						<div class="header">位置：报表打印-预警信息报表</div>
+						<div class="row1">
+							<div class="chaxun">
+								<div class="lie1">
+									<span>开始时间:</span>
+									<input type="date" class="text" id="time_1"/>
+									<span>结束时间:</span>
+									<input type="date" class="text" id="time_2"/>
+									<span>安装地点</span>
+									<select>
+										<option value="请选择">请选择</option>
+										<option value="0-16通道分站">0-16通道分站</option>
+										<option value="1-4通道分站">1-4通道分站</option>
+									</select>
+								</div>
+								<form class="button">
+									<input type="button" class="btn btn-warning btn-sm" value="查询"/>
+									<input type="button" class="btn btn-info  btn-sm" value="导出excel" onclick="exportExcel('tableExcel')"/>
+								</form>
+								
+							</div>
+							<table class="table table-bordered" id="tableExcel" style="display: none;">
+								  <thead>
+								    <tr>
+								      <th colspan="9">预警信息报表</th>
+								    </tr>
+								  </thead>
+								  <tbody>
+								    <tr>
+								      <td>工作面名称</td>
+								      <td>二11060工作面</td>
+								      <td>传感器地址</td>
+								      <td>二11060工作面风流</td>
+								      <td>传感器编码</td>
+								      <td>0610</td>
+								      <td>日期和班次</td>
+								      <td>2018-06-11</td>
+								      <td>中班</td>
+								    </tr>
+								    <tr>
+								      <td colspan="9" id="nongdu" width="1100px" height="200px"></td>
+								    </tr>
+								    <tr>
+								      <td colspan="9" id="liuliang"  width="1100px" height="200px"></td>
+								    </tr>
+								    <tr>
+								      <td colspan="9" id="wendu"  width="1100px" height="200px"></td>
+								    </tr>
+								    <tr>
+								      <td colspan="9" id="fuya"  width="1100px" height="200px"></td>
+								    </tr>
+								    <tr>
+								      <td>趋势预测结果</td>
+								      <td colspan="2">绿色</td>
+								      <td>状态预测结果</td>
+								      <td colspan="2">正常</td>
+								      <td>工作面位置</td>
+								      <td colspan="2">距胶带顶槽开口852.8米</td>
+								    </tr>
+								    <tr>
+								    	<td>预测结果</td>
+								    	<td colspan="8">四个指标的各自平均值</td>
+								    </tr>
+								    <tr>
+								    	<td>备注</td>
+								    	<td colspan="8"></td>
+								    </tr>
+								  </tbody>
+								</table>
+						</div>
+					</div>
+				
+				</div>
+				<div class="w-a">
+					
+				</div>
+				<div class="w-a">
+					<div class="header">位置：报表打印-预警信息报表</div>
+						<div class="row1">
+							<div class="chaxun">
+								<div class="lie2">
+									<span>参数:</span>
+									<input type="text" class="text"/>
+									<span>地址:</span>
+									<input type="text" class="text"/>
+									<span>类型:</span>
+									<input type="text" class="text"/>
+								</div>
+								<div class="lie1">
+									<span>开始时间:</span>
+									<input type="text" class="text"/>
+									<span>结束时间:</span>
+									<input type="text" class="text"/>
+									<span>安装地点</span>
+									<input type="text" class="text"/>
+									<!--<select>
+										<option value=""></option>
+										<option value=""></option>
+										
+									</select>-->
+								</div>
+								<form class="button">
+									<input type="button" class="btn btn-warning btn-sm" value="查询"/>
+									<input type="button" class="btn btn-success btn-sm" value="打印"/>
+									<input type="button" class="btn btn-info  btn-sm" value="导出excel"/>
+								</form>
+								
+							</div>
+							<table class="table">
+								  <thead>
+								    <tr>
+								      <th>编号</th>
+								      <th>测点</th>
+								      <th>名称</th>
+								      <th>安装地址</th>
+								      <th>单位</th>
+								      <th>时间区间</th>
+								      <th>最大值</th>
+								      <th>最小值</th>
+								      <th>平均值</th>
+								    </tr>
+								  </thead>
+								  <tbody>
+								    <tr>
+								      <td>Tanmay</td>
+								      <td>Bangalore</td>
+								      <td>560001</td>
+								      <td>Tanmay</td>
+								      <td>Bangalore</td>
+								      <td>560001</td>
+								      <td>5</td>
+								      <td>2</td>
+								      <td>1</td>
+								    </tr>
+								    <tr>
+								      <td>Sachin</td>
+								      <td>Mumbai</td>
+								      <td>400003</td>
+								      <td>Sachin</td>
+								      <td>Mumbai</td>
+								      <td>400003</td>
+								      <td>5</td>
+								      <td>2</td>
+								      <td>1</td>
+								    </tr>
+								    <tr>
+								      <td>Uma</td>
+								      <td>Pune</td>
+								      <td>411027</td>
+								      <td>Uma</td>
+								      <td>Pune</td>
+								      <td>411027</td>
+								      <td>5</td>
+								      <td>2</td>
+								      <td>1</td>
+								    </tr>
+								  </tbody>
+								</table>
+						</div>
+				</div>
+				
+				<div></div>
+			</div>
+		</div>
+		<script src="js/shouye.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/canshushezhi.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/chuanguanqiguanli.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/fenzhanguanli.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/zuankongshigongxinxin'.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/choucaijiliang.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/tiaokongguanli.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/yujingxinxibaobiao.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/shishishuju.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/lishishuju.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/baojingxinxi.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/tiaokongmingling.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/choucaixiaoguoyuce.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var url = "http://localhost:8081";
+			$(function(){
+				$(".level1 p").click(function(){
+					if($(this).next().is(":visible")){//若每项的子文件是可见的         
+			   	 		$(this).next().slideUp(1000);
+			   	 	}else{
+			   	 		$(this).next().slideDown(500);
+			   	 	}
+				})
+				return false;
+
+			})
+			//选项卡
+			var $aspan = $(".p-span1");//获取到所有子li
+			//$("#right_block .w-a").eq(0).show().siblings().hide();//进循环之前，先让所有右边的块都隐藏
+			$("#right_block #shouye-p").show().siblings().hide();
+			for(var i=0;i<$aspan.length;i++){
+				(function(){
+					$aspan[i].index = i;
+					var index = $aspan[i].index;//$aspan[i]已经是dom元素了，所以下面直接用onclick
+					$aspan[i].onclick = function(){
+						$("#right_block .w-a").eq(index).show().siblings().hide();
+					}
+				})(i);
+				
+			}
+			
+			
+			
+			
+			
+		
+			
+		</script>
+	</body>
+</html>
