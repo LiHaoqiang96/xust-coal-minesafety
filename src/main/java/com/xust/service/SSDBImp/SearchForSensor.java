@@ -27,10 +27,8 @@ public class SearchForSensor implements AllSSDBSearchI {
     public void run() {
         Jedis jedis =null;
         try {
-            System.out.println(key);
             jedis = RedisPoll.getResource();
             String values = jedis.get(key);
-            System.out.println(values);
             if (values != null) {
                 concurrentHashMap.put(key, values);
             }

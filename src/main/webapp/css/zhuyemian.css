@@ -323,11 +323,19 @@ body{
 }
 .zuankong .row1 .input-group{
     width: 39%;
-    float: left;
+    /*float: left;*/
     margin-right: 10px;
     background: rgba(0,0,0,0.1);
     margin-top: 25px;
     margin-left: 82px;
+}
+.zuankong .row1 form{
+    display: flex;
+    flex-direction: column;
+}
+.zuankong .row1 form .form-row{
+    display: inline-flex;
+    flex-direction: row;
 }
 .zuankong .row1 .input-group .form-control,.choucaijiliang .row1 .input-group .form-control{
     background: transparent;
@@ -344,10 +352,10 @@ body{
     top: 380px;
 }
 .zuankong .tishi{
-    display: block;
+    display: inline-block;
     color: #dbe1ed;
     margin-top: 33px;
-    float: left;
+    /*float: left;*/
 }
 .zuankong .input-group-addon{
     width: 81px;

@@ -8,6 +8,7 @@
 					dataType:"jsonp",
 					jsonpCallback:"callback",
 					success:function(data){
+                        $(".chuanganqi tbody").empty()
 						for(var i=0;i<data.length;i++){
 							var tr = "<tr><td>"+data[i].num+"</td><td>"+data[i].name+"</td><td>"+data[i].model+"</td><td><select><option value="+data[i].type+">"+data[i].type+"</option><option value='瓦斯传感器'>瓦斯传感器</option><option value='温度传感器'>温度传感器</option><option value='流量传感器'>流量传感器</option><option value='负压传感器'>负压传感器</option><option value='风速传感器'>风速传感器</option></select></td><td>"+data[i].unit+"</td><td style='display: none;'>"+data[i].id+"</td><td><input type='button' value='修改'  class='btn btn-primary btn-sm'/></td><td><input type='button' value='删除' class='btn btn-danger btn-sm'/></td></tr>"
 							

@@ -67,7 +67,6 @@ public class ReadRunService {
 
         try {
             //countDownLatch.await(1000 * 10, TimeUnit.MILLISECONDS);
-            System.out.println("waiting");
             countDownLatch.await();
         } catch (InterruptedException e) {
             e.printStackTrace();

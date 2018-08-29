@@ -8,6 +8,12 @@
 					jsonpCallback:"callback",
 					success:function(data){
 						var input_group = $(".canshushezhi").find(".input-group");
+						input_group.each(function () {
+							console.debug($(this.children[0]).next('input').prop('tagName'))
+							if($(this.children[0]).next('input').prop('tagName') != undefined)
+                                $(this.children[0]).next('input').remove()
+                        })
+                        // console.debug(input_group[0].children[0].next())
 						$(input_group[0].children[0]).after("<input type='text' placeholder='请输入矿井名称' class='form-control' value="+data.name+">");
 						$(input_group[1].children[0]).after("<input type='text' placeholder='请输入设计生产能力' class='form-control' value="+data.design_production_capacity+">");
 						$(input_group[2].children[0]).after("<input type='text' placeholder='请输入回风量' class='form-control' value="+data.air_intake+">");

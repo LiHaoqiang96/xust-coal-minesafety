@@ -11,6 +11,7 @@
 					dataType:'jsonp',
 					jsonpCallback:"callback",
 					success:function(data){
+                        $(".fenzhan tbody").empty()
 						for(var i=0;i<data.length;i++){
 							var tr = '<tr><td>'+data[i].num+'</td><td>'+data[i].position1+'</td><td><select><option value='+data[i].type+'>'+data[i].type+'</option><option value="0-16通道分站">0-16通道分站</option><option value="1-4通道分站">1-4通道分站</option></select></td><td style="display: none;">'+data[i].id+'</td><td><input type="button" value="修改" class="btn btn-primary btn-sm"/></td><td><input type="button" value="删除" class="btn btn-danger btn-sm"/></td></tr>'
 							$(".fenzhan tbody").append(tr);

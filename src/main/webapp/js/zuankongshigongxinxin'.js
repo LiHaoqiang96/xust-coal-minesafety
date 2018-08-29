@@ -10,6 +10,10 @@
 					jsonpCallback:"callback",
 					success:function(data){
 						var input_group = $(".zuankong").find(".input-group");
+                        input_group.each(function () {
+                            if($(this.children[0]).next('input').prop('tagName') != undefined)
+                                $(this.children[0]).next('input').remove()
+                        })
 						$(input_group[0].children[0]).after('<input type="text" class="form-control"  value='+data.diameter+'>');
 						$(input_group[1].children[0]).after('<input type="text" class="form-control"  value='+data.spacing+'>');
 						$(input_group[2].children[0]).after('<input type="text" class="form-control"  value='+data.coordinate+'>');
