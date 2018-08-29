@@ -1,4 +1,5 @@
 /*历史数据相关js*/
+
 var chart5
 var chart6
 var chart7
@@ -219,6 +220,8 @@ initHistoryChart = () => {
 }
 initHistoryChart()
 $(".lishishuju .btn-warning").click(function(){
+    $('.lishishuju div.effect').hide()
+    $('.lishishuju div.effect').slideDown(1500)
 	var times5=[];    //时间数组（实际用来盛放X轴坐标值）
 	var nums5=[];    //数据数组（实际用来盛放Y坐标值）
 	var times6 = [];

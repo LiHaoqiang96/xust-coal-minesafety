@@ -1,6 +1,8 @@
 /*报警信息显示相关js*/
 //初始化图标标签
 $("#w-baojing").click(function(){
+    $('div.right').hide()
+    $('div.right').show(1500)
 	var mychart1 = echarts.init(document.getElementById("mychart1"),'dark');
 	var mychart2 = echarts.init(document.getElementById("mychart2"),'dark');
 	var mychart3 = echarts.init(document.getElementById("mychart3"),'dark');
