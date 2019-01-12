@@ -64,6 +64,7 @@ public class SensorController {
     @ResponseBody
     public Object deleteSensor(String callback,String id){
         sensorService.deleteSensor(id);
+        System.out.println(id);
         System.out.println("success33");
         SensorPo sensorPo = new SensorPo();
         sensorPo.setCallback(callback);

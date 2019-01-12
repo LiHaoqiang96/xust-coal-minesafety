@@ -156,10 +156,13 @@ public class ReadRunService {
         String prekey = "";
         while (it.hasNext()) {
             String key = it.next();
+//            System.out.println("key" + key);
             if ("1".equals(key.split("_")[1])) {
                 prekey = key;
             }
         }
+//        System.out.println("gasuyjgfyu"+prekey);
+//        System.out.println(map);
         map.put("pre_now"+prekey,this.predictResult(map.get(prekey)));
         return map;
     }

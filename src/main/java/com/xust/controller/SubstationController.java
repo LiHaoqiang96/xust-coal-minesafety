@@ -32,7 +32,7 @@ public class SubstationController {
         return mappingJacksonValue;
     }
 
-    @PostMapping(value = "/info1")
+    @GetMapping(value = "/info1")
     public Object insertSubstation(SubstationPo substationPo){
         substationService.insertSubstation(UUID.randomUUID().toString(),substationPo.getNum(),substationPo.getPosition1(),substationPo.getType());
         MappingJacksonValue mappingJacksonValue = new MappingJacksonValue(substationPo);
@@ -41,7 +41,7 @@ public class SubstationController {
         return mappingJacksonValue;
     }
 
-    @PostMapping(value = "/info2")
+    @GetMapping(value = "/info2")
     public Object updateSubstation(SubstationPo substationPo){
         substationService.updateSubstation(substationPo.getId(),substationPo.getNum(),substationPo.getPosition1(),substationPo.getType());
         MappingJacksonValue mappingJacksonValue = new MappingJacksonValue(substationPo);

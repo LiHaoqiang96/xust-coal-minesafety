@@ -73,6 +73,7 @@ public class MainController {
     public JSONObject login(@RequestParam("phonenum") String phonenum, @RequestParam("password") String password) {
         String flag = "0";
         JSONObject jsonObject = new JSONObject();
+        System.out.println(phonenum + " " + password);
         if (userservice.checkLogin(phonenum, password)) {
             flag = "1";
         } else {
